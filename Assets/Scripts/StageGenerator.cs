@@ -9,7 +9,6 @@ public class StageGenerator : MonoBehaviour {
 	int currentTipIndex;
 
 	public Transform character;
-	public GameObject[] stageTips;
 	public int startTipIndex;
 	public int preInstantiate;
 	public List<GameObject> generatedStageList = new List<GameObject> ();
@@ -63,11 +62,6 @@ public class StageGenerator : MonoBehaviour {
 
 	// Create Stage object in particular position
 	GameObject GenerateStage (int tipIndex) {
-		//int nextStageTip = Random.Range (0, stageTips.Length);
-		//GameObject stageObject = (GameObject)Instantiate (stageTips [nextStageTip],
-		//	     new Vector3 (0, 0, tipIndex * StageTipSize), Quaternion.identity);
-
-
 	    GameObject stageObject = (GameObject)Instantiate (stage,
 	        new Vector3 (0, 0, tipIndex * StageTipSize), Quaternion.identity);
         // place enemies on the stage.

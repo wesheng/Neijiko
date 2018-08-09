@@ -80,9 +80,11 @@ public class NejikoController : MonoBehaviour {
 	public void MoveToLeft() {
 		if (IsStunned ())
 			return;
-		if (controller.isGrounded && targetLane > MinLane - 2)
-			targetLane-=2;
-	}
+		if (controller.isGrounded && targetLane > MinLane)
+        {
+            targetLane -= 1;
+        }
+    }
 
 	// Start moving to Right Lane
 	public void MoveToRight() {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,24 +80,30 @@ public class NejikoController : MonoBehaviour {
 	public void MoveToLeft() {
 		if (IsStunned ())
 			return;
-		if (controller.isGrounded && targetLane > MinLane - 2)
-			targetLane-=2;
-	}
+		if (controller.isGrounded && targetLane > MinLane)
+        {
+            targetLane -= 1;
+        }
+    }
 
 	// Start moving to Right Lane
 	public void MoveToRight() {
 		if (IsStunned ())
 			return;
-		if (controller.isGrounded && targetLane < MaxLane + 2)
-			targetLane+=2;
+		if (controller.isGrounded && targetLane < MaxLane)
+			targetLane += 1;
 	}
 
 	public void Jump() {
 		if (IsStunned ())
 			return;
-		moveDirection.y = speedJump * 2f;
-		// Set Jumper trigger
-		animator.SetTrigger("jump");
+	    if (controller.isGrounded)
+	    {
+	        moveDirection.y = speedJump * 2f;
+	        // Set Jumper trigger
+	        animator.SetTrigger("jump");
+	    }
+
 	}
 
 	// When generated crash to CharacterController

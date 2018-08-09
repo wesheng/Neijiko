@@ -27,14 +27,14 @@ public class NejikoController : MonoBehaviour {
 		return life;
 	}
 
-	public bool IsStan() {
+	public bool IsStunned() {
 		return recoverTime > 0.0f || life <= 0;
 	}
 
 	// Use this for initialization
 	void Start () {
-		// 필요한 콤퍼넌트 자동취득
-		controller = GetComponent<CharacterController>();
+        // Automatic retrieval of required components
+        controller = GetComponent<CharacterController>();
 		animator = GetComponent<Animator> ();
 	}
 	
@@ -45,7 +45,7 @@ public class NejikoController : MonoBehaviour {
 		if (Input.GetKeyDown("right")) MoveToRight();
 		if (Input.GetKeyDown("space")) Jump();
 
-		if (IsStan ()) {
+		if (IsStunned ()) {
 			// When sleep state, proceed recovery count
 			moveDirection.x = 0.0f;
 			moveDirection.z = 0.0f;
@@ -61,23 +61,23 @@ public class NejikoController : MonoBehaviour {
 			moveDirection.x = ratioX * speedX;
 		}
 
-		// 중력만큼의 힘을 매 프레임에 추가
-		moveDirection.y -= gravity * Time.deltaTime;
+        // Adds as much force as gravity to every frame
+        moveDirection.y -= gravity * Time.deltaTime;
 
-		// 이동 실행
-		Vector3 globalDirection = transform.TransformDirection(moveDirection);
+        // Move Run
+        Vector3 globalDirection = transform.TransformDirection(moveDirection);
 		controller.Move (globalDirection * Time.deltaTime);
 
-		// 이동 후 접지하고 있으면 Y 방향의 속도는 리셋한다
-		if( controller.isGrounded) moveDirection.y = 0;
+        // If the motor is grounded after movement, the speed in the Y direction is reset
+        if ( controller.isGrounded) moveDirection.y = 0;
 
-		// 속도가 0 이상이면 달리고 있는 플래그를 true로 한다.
-		animator.SetBool("run", moveDirection.z > 0.0f);
+        // If the speed is more than 0, the running flag is set to true.
+        animator.SetBool("run", moveDirection.z > 0.0f);
 	}
 
 	// Start moving to Left Lane
 	public void MoveToLeft() {
-		if (IsStan ())
+		if (IsStunned ())
 			return;
 		if (controller.isGrounded && targetLane > MinLane - 2)
 			targetLane-=2;
@@ -85,14 +85,14 @@ public class NejikoController : MonoBehaviour {
 
 	// Start moving to Right Lane
 	public void MoveToRight() {
-		if (IsStan ())
+		if (IsStunned ())
 			return;
 		if (controller.isGrounded && targetLane < MaxLane + 2)
 			targetLane+=2;
 	}
 
 	public void Jump() {
-		if (IsStan ())
+		if (IsStunned ())
 			return;
 		moveDirection.y = speedJump * 2f;
 		// Set Jumper trigger
@@ -101,7 +101,7 @@ public class NejikoController : MonoBehaviour {
 
 	// When generated crash to CharacterController
 	void OnControllerColliderHit(ControllerColliderHit hit) {
-		if (IsStan ())
+		if (IsStunned ())
 			return;
 
 		if (hit.gameObject.tag == "Robo") {
@@ -109,10 +109,10 @@ public class NejikoController : MonoBehaviour {
 			life --;
 			recoverTime = StunDuration;
 
-			// Set Demage Trigger
+			// Set Damage Trigger
 			animator.SetTrigger("damage");
 
-			// Delete hited object
+			// Delete colliding object
 			Destroy(hit.gameObject);
 		}
 	}

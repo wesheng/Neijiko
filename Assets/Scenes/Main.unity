@@ -680,6 +680,26 @@ Prefab:
       propertyPath: speedJump
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: accelerationZ
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: velocityZ
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: speedZ
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: stunAccelerationZ
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a780da896ca904035b33f90d86b0ba4d, type: 2}
   m_IsPrefabAsset: 0
@@ -870,10 +890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1959863897}
-  stageTips:
-  - {fileID: 1266803175094118, guid: 5fbc63b7ac6c0244691420d872afb3f5, type: 2}
-  - {fileID: 1809585387249650, guid: 26a824847a87272419df2745fb4abaff, type: 2}
-  - {fileID: 1341370150168566, guid: c6ae9f607324c5e478aeace790d6157f, type: 2}
   startTipIndex: 1
   preInstantiate: 5
   generatedStageList:
@@ -1782,7 +1798,8 @@ MonoBehaviour:
   speedZ: 5
   speedX: 3
   speedJump: 8
-  accelerationZ: 10
+  stunAccelerationZ: 0
+  velocityZ: 0
 --- !u!4 &1959863897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 478232, guid: a780da896ca904035b33f90d86b0ba4d,

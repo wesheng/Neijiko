@@ -22,7 +22,8 @@ public class NejikoController : MonoBehaviour {
 	public float speedZ;
 	public float speedX;
 	public float speedJump;
-	public float accelerationZ;
+	public float stunAccelerationZ;
+    public float velocityZ;
 
 	public int Life() {
 		return life;
@@ -53,9 +54,10 @@ public class NejikoController : MonoBehaviour {
 			recoverTime -= Time.deltaTime;
 		} else {
 
-			// Slowly accelerate toward Z
-			float acceleratedZ = moveDirection.z + (accelerationZ * Time.deltaTime);
-			moveDirection.z = Mathf.Clamp (acceleratedZ, 0, speedZ);
+		    speedZ += velocityZ * Time.deltaTime;
+		    // Slowly accelerate toward Z, used after being stunned
+			float acceleratedZ = moveDirection.z + (stunAccelerationZ * Time.deltaTime);
+			moveDirection.z = Mathf.Min(acceleratedZ, speedZ);
 
 			// Calculate X direction movement
 			float ratioX = (targetLane * LaneWidth - transform.position.x) / LaneWidth;

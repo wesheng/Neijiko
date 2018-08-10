@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class StageGenerator : MonoBehaviour {
@@ -8,10 +9,19 @@ public class StageGenerator : MonoBehaviour {
 	int currentTipIndex;
 
 	public Transform character;
-	public GameObject[] stageTips;
 	public int startTipIndex;
 	public int preInstantiate;
 	public List<GameObject> generatedStageList = new List<GameObject> ();
+
+
+    //// Random generation
+
+    // Base stage prefab
+    public GameObject stage;
+    // Use for random generation of enemy
+    public List<GameObject> enemyPoints = new List<GameObject>();
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -52,9 +62,25 @@ public class StageGenerator : MonoBehaviour {
 
 	// Create Stage object in particular position
 	GameObject GenerateStage (int tipIndex) {
-		int nextStageTip = Random.Range (0, stageTips.Length);
-		GameObject stageObject = (GameObject)Instantiate (stageTips [nextStageTip],
-			     new Vector3 (0, 0, tipIndex * StageTipSize), Quaternion.identity);
+	    GameObject stageObject = (GameObject)Instantiate (stage,
+	        new Vector3 (0, 0, tipIndex * StageTipSize), Quaternion.identity);
+        // place enemies on the stage.
+        // min x = -2.5, max x = 2.5
+        // y = 0
+        // 5 < x < 25
+	    const int numberOfEnemiesToSpawn = 3;
+	    int enemyIndex = Random.Range(0, enemyPoints.Count);
+	    for (int i = 0; i < numberOfEnemiesToSpawn; ++i)
+	    {
+	        GameObject enemy = (GameObject) Instantiate(enemyPoints[enemyIndex], stageObject.transform);
+            enemy.transform.localPosition = new Vector3(
+                Random.Range(-2.5f, 2.5f),
+                0,
+                Random.Range(5f, 25f)
+                );
+	    }
+
+
 
 		return stageObject;
 	}

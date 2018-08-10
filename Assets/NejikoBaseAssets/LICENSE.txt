@@ -1,29 +1,28 @@
-「ゆるロボアセット」注意事項
+"Robo asset" notes
 ===========================
 
-１．「ゆるロボアセット」（以下「本データ」といいます）の利用を希望される方（以下「利用者」といいます）は、本データの利用にあたり、この注意事項に同意のうえご利用ください。
+1. Those who wish to use "loose robot assets" (hereinafter referred to as "this data") (hereinafter referred to as "users") agree to these precautions in using this data .
 
-２．本データの中には、「ゆるロボ製作所」（以下「本著作物」といいます）の著作物等が含まれます。
-本著作物の著作権、その他一切の権利は、プレイネクストジャパン株式会社（以下「当社」といいます）または当社の指定する第三者が保有しています。
+2. This data includes copyrighted works of "Robo Mfg. Co., Ltd." (hereinafter referred to as "this work").
+The copyright and other rights of this work are owned by Play Next Japan Co., Ltd. (hereinafter referred to as "the Company") or a third party designated by the Company.
 
-３．利用者は、本データの利用にあたり、以下に定める禁止事項に該当するまたは該当するおそれがある行為を行ってはならないものとします。
-(1) 本データを第三者に譲渡、貸与、売買または使用させる行為。
-(2) 他の利用者、第三者または当社の産業財産権および著作権その他一切の権利を侵害する行為。
-(3) 本データを利用して、他の利用者、第三者の財産、プライバシーもしくは肖像権を侵害する行為。
-(4) 本データを利用して、他の利用者、第三者を差別もしくは誹謗中傷し、または名誉・信用を毀損する行為。
-(5) 営利及び商業を目的とする本データの利用行為、またはその準備行為。
-(6) 本データを二次利用（本データを利用したアプリケーションソフトの作成を含むが、これに限られない）する行為。
-(7) 一般公衆が閲覧できるサイト等への本データの掲載行為。
-(8) 本データを第三者に再配布する行為。
-(9) この注意事項に違反する行為。
-(10) 本データを利用して、法令もしくは公序良俗(売春、暴力、残虐)に違反し、または他の利用者もしくは第三者に不利益を与える行為。
-(11) 前各号に定める行為を助長する行為。
-(12) 前各号に該当するおそれがあると当社が判断する行為。
-(13) その他、当社が不適切と判断する行為。
+3. In using this data, you shall not perform any act that falls under or does not fall under the prohibited matter stipulated below.
+(1) The act of assigning, lending, trading or using this data to a third party.
+(2) Acts of infringing other users, third parties or our industrial property rights and copyrights or any other rights.
+(3) The act of infringing another user, third party's property, privacy or portrait right by using this data.
+(4) The act of discriminating against or slandering other users or third parties, or harming honor and reputation by using this data.
+(5) Usage of this data for commercial or commercial purposes, or preparatory acts thereof.
+(6) The act of secondary use of this data (including creation of application software using this data, but not limited to this).
+(7) Acts of posting this data on sites etc. that can be viewed by the general public.
+(8) The act of redistributing this data to a third party.
+(9) Acts that violate this notice.
+(10) The act of violating laws or public order and morals (prostitution, violence, cruelty) or disadvantage to other users or third parties using this data.
+(11) Acts that promote the acts prescribed in the preceding items.
+(12) Acts judged by the Company that there is a danger of falling under each of the preceding items.
+(13) Any other action that we deem inappropriate.
 
-４．当社は、利用者に事前の連絡を行うことなく、この注意事項の内容の全部または一部を変更、改訂、中止または廃止等することができるものとします。
+4. The Company shall be able to change, revise, cancel or abolish all or part of the contents of this notice without prior notifying the user.
 
-５．当社は、本データの内容について、その完全性、正確性、確実性、有用性等につき、いかなる保証も行わないものとします。
+5. We do not guarantee the integrity, accuracy, certainty, usefulness, etc. of the contents of this data in any way.
 
-６．当社は、利用者が本データを利用したことによって損害が生じた場合であっても一切の責任を負いません。
-
+6. We do not assume any responsibility even if damage occurs due to the use of this data by the user.

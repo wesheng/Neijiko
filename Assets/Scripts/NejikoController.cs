@@ -26,11 +26,7 @@ public class NejikoController : MonoBehaviour {
     public float velocityZ;
 
     // Shake Camera
-    public float shakeDuration = 0f;
-    public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
-    public Vector3 originalPos;
-    public SimpleFollow nejikoCamera;
+    public CameraShake cameraShake;
 
     public int Life() {
 		return life;
@@ -83,21 +79,6 @@ public class NejikoController : MonoBehaviour {
 
         // If the speed is more than 0, the running flag is set to true.
         animator.SetBool("run", moveDirection.z > 0.0f);
-
-        // Track original camera position
-        originalPos = nejikoCamera.transform.position;
-
-        if (shakeDuration > 0)
-        {
-            nejikoCamera.transform.localPosition = originalPos + UnityEngine.Random.insideUnitSphere * shakeAmount;
-
-            shakeDuration -= Time.deltaTime * decreaseFactor;
-        }
-        else
-        {
-            shakeDuration = 0.0f;
-            nejikoCamera.transform.localPosition = originalPos;
-        }
     }
 
 	// Start moving to Left Lane
@@ -145,8 +126,7 @@ public class NejikoController : MonoBehaviour {
 
 			// Delete colliding object
 			Destroy(hit.gameObject);
-
-            shakeDuration = StunDuration;
+		    cameraShake.Shake(StunDuration);
 		}
 	}
 }

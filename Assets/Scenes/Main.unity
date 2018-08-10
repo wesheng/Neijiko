@@ -700,6 +700,21 @@ Prefab:
       propertyPath: stunAccelerationZ
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: nejikoCamera
+      value: 
+      objectReference: {fileID: 483211432}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: shakeAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108104237135914, guid: a780da896ca904035b33f90d86b0ba4d,
+        type: 2}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 483211433}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a780da896ca904035b33f90d86b0ba4d, type: 2}
   m_IsPrefabAsset: 0
@@ -722,6 +737,7 @@ GameObject:
   - component: {fileID: 483211428}
   - component: {fileID: 483211427}
   - component: {fileID: 483211432}
+  - component: {fileID: 483211433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -816,6 +832,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1959863893}
   followSpeed: 5
+--- !u!114 &483211433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483211426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64531bc724015be47baeef7bf4c67d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.3
+  decreaseFactor: 1
 --- !u!1001 &526029897
 Prefab:
   m_ObjectHideFlags: 0
@@ -1800,6 +1829,7 @@ MonoBehaviour:
   speedJump: 8
   stunAccelerationZ: 0
   velocityZ: 0
+  cameraShake: {fileID: 0}
 --- !u!4 &1959863897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 478232, guid: a780da896ca904035b33f90d86b0ba4d,

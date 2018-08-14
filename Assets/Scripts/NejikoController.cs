@@ -25,6 +25,8 @@ public class NejikoController : MonoBehaviour {
 	public float stunAccelerationZ;
     public float velocityZ;
 
+    public ParticleSystem OnCollideParticles;
+
     // Shake Camera
     public CameraShake cameraShake;
 
@@ -120,6 +122,8 @@ public class NejikoController : MonoBehaviour {
 			// Reduce life value, and change state to sleep
 			life --;
 			recoverTime = StunDuration;
+
+		    Instantiate(OnCollideParticles, transform.position, Quaternion.identity);
 
 			// Set Damage Trigger
 			animator.SetTrigger("damage");

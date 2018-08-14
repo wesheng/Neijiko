@@ -7,16 +7,6 @@ public class CameraShake : MonoBehaviour
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
     public void Shake(float time)
     {
         StartCoroutine(ShakeCoroutine(time));

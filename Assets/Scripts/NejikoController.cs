@@ -12,7 +12,7 @@ public class NejikoController : MonoBehaviour {
 
     [SerializeField] static List<Effect_Base> effectList = new List<Effect_Base>();
 
-    internal static void AddEffect<T>(float duration, float arguments) where T : Effect_Base
+    public void AddEffect<T>(float duration, float arguments) where T : Effect_Base
     {
         T effect = (T) Activator.CreateInstance(typeof(T), duration, arguments);
         effectList.Add(effect);
@@ -103,15 +103,21 @@ public class NejikoController : MonoBehaviour {
         animator.SetBool("run", moveDirection.z > 0.0f);
 
         // Update Effects
+	    List<Effect_Base> toRemove = new List<Effect_Base>();
         foreach(Effect_Base effect in effectList)
         {
             effect.PowerUpUpdate();
-            if(effect.remainingTime <= 0)
+            if (effect.remainingTime <= 0)
             {
                 effect.EffectEnd();
-                effectList.Remove(effect);
+                toRemove.Add(effect);
             }
         }
+
+	    foreach (Effect_Base remove in toRemove)
+	    {
+	        effectList.Remove(remove);
+	    }
     }
 
 	// Start moving to Left Lane

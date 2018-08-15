@@ -12,4 +12,9 @@ public class PowerUp_Speed : PowerUp_Base
     {
         Debug.Log(hit.gameObject.name);
     }
+
+    public override void GiveEffect(NejikoController controller)
+    {
+        controller.AddEffect<Effect_Speed>(duration, speedAddition);
+    }
 }

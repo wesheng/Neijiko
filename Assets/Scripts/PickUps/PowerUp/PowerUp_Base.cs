@@ -9,5 +9,5 @@ public abstract class PowerUp_Base : MonoBehaviour {
 	}
 
     public abstract void OnCollisionEnter(Collision hit);
-
+    public abstract void GiveEffect(NejikoController controller);
 }

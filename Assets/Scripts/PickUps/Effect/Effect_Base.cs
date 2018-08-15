@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Effect_Base {
-    
+public abstract class Effect_Base
+{
     public float remainingTime = 0;    
 
-    public Effect_Base(float duration, float argument)
+    protected Effect_Base(float duration)
     {
         remainingTime = duration;
     }
-    
-    public void PowerUpUpdate()
-    {
-        remainingTime -= Time.deltaTime;
-    }
-
-    public abstract void EffectStart(float duration);
-    public abstract void EffectEnd();
+   
+    public abstract void EffectStart(NejikoController controller);
+    public abstract void EffectUpdate(NejikoController controller);
+    public abstract void EffectEnd(NejikoController controller);
 }

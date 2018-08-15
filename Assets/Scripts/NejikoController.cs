@@ -25,6 +25,9 @@ public class NejikoController : MonoBehaviour {
 	public float stunAccelerationZ;
     public float velocityZ;
 
+    public ParticleSystem OnCollideParticles;
+    public ParticleSystem RunningParticles;
+
     // Shake Camera
     public CameraShake cameraShake;
 
@@ -56,7 +59,10 @@ public class NejikoController : MonoBehaviour {
 			moveDirection.z = 0.0f;
 			recoverTime -= Time.deltaTime;
 		} else {
-
+		    if (RunningParticles.isStopped && controller.isGrounded)
+		    {
+                RunningParticles.Play();
+		    }
 		    speedZ += velocityZ * Time.deltaTime;
 		    // Slowly accelerate toward Z, used after being stunned
 			float acceleratedZ = moveDirection.z + (stunAccelerationZ * Time.deltaTime);
@@ -75,7 +81,14 @@ public class NejikoController : MonoBehaviour {
 		controller.Move (globalDirection * Time.deltaTime);
 
         // If the motor is grounded after movement, the speed in the Y direction is reset
-        if ( controller.isGrounded) moveDirection.y = 0;
+	    if (controller.isGrounded)
+	    {
+	        if (RunningParticles.isStopped)
+	        {
+	            RunningParticles.Play();
+	        }
+	        moveDirection.y = 0;
+	    }
 
         // If the speed is more than 0, the running flag is set to true.
         animator.SetBool("run", moveDirection.z > 0.0f);
@@ -107,6 +120,7 @@ public class NejikoController : MonoBehaviour {
 	        moveDirection.y = speedJump * 2f;
 	        // Set Jumper trigger
 	        animator.SetTrigger("jump");
+	        RunningParticles.Stop();
 	    }
 
 	}
@@ -121,8 +135,11 @@ public class NejikoController : MonoBehaviour {
 			life --;
 			recoverTime = StunDuration;
 
+		    Instantiate(OnCollideParticles, transform.position, Quaternion.identity);
+
 			// Set Damage Trigger
 			animator.SetTrigger("damage");
+		    RunningParticles.Stop();
 
 			// Delete colliding object
 			Destroy(hit.gameObject);

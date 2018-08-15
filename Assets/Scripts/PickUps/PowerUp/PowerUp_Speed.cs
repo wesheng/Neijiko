@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PowerUp_Speed : PowerUp_Base
 {
-
     [SerializeField] private float duration;
     [SerializeField] private float speedAddition;
 
-    public override void OnCollisionEnter(Collision hit)
+    protected override Effect_Base InitEffect()
     {
-        Debug.Log(hit.gameObject.name);
+        return new Effect_Speed(duration, speedAddition);
     }
 }

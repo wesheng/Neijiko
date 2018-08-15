@@ -16,10 +16,10 @@ public class GameController : MonoBehaviour {
 		scoreLabel.text = "Score : " + score + "m";
 
 		// Update Life Panel
-		lifePanel.UpdateLife(nejiko.Life());
+		lifePanel.UpdateLife(nejiko.Life);
 
 		// Close game when life count become 0
-		if (nejiko.Life () <= 0) {
+		if (nejiko.Life <= 0) {
 			// Stop more update
 			enabled = false;
 

@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PowerUp_Base : MonoBehaviour {
-	
-	// Update is called once per frame
-	void Update () {
-	}
+public abstract class PowerUp_Base : MonoBehaviour
+{
 
-    public abstract void OnCollisionEnter(Collision hit);
+    private Effect_Base effect;
 
+    void Start()
+    {
+        effect = InitEffect();
+    }
+
+    protected abstract Effect_Base InitEffect();
+    
+    public void GiveEffect(NejikoController controller)
+    {
+        controller.AddEffect(effect);
+    }
 }

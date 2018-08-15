@@ -12,11 +12,15 @@ public class NejikoController : MonoBehaviour {
 
     [SerializeField] static List<Effect_Base> effectList = new List<Effect_Base>();
 
-    internal static void AddEffect<T>(float duration, float arguments) where T : Effect_Base
+    public void AddEffect<T>(T effect) where T : Effect_Base
     {
-        T effect = (T) Activator.CreateInstance(typeof(T), duration, arguments);
         effectList.Add(effect);
-        effect.EffectStart(duration);
+        StartCoroutine(EffectEnumerator(effect));
+    }
+
+    public void RemoveEffect<T>(T effect) where T : Effect_Base
+    {
+        effectList.Remove(effect);
     }
 
     CharacterController controller;
@@ -24,7 +28,12 @@ public class NejikoController : MonoBehaviour {
 
 	Vector3 moveDirection = Vector3.zero;
 	int targetLane;
-	int life = DefaultLife;
+	private int life = DefaultLife;
+    public int Life
+    {
+        get { return life; }
+        set { life = value; }
+    }
 	float recoverTime = 0.0f;
 
 	[SerializeField] public float gravity;
@@ -39,10 +48,6 @@ public class NejikoController : MonoBehaviour {
 
     // Shake Camera
     public CameraShake cameraShake;
-
-    public int Life() {
-		return life;
-	}
 
 	public bool IsStunned() {
 		return recoverTime > 0.0f || life <= 0;
@@ -101,17 +106,6 @@ public class NejikoController : MonoBehaviour {
 
         // If the speed is more than 0, the running flag is set to true.
         animator.SetBool("run", moveDirection.z > 0.0f);
-
-        // Update Effects
-        foreach(Effect_Base effect in effectList)
-        {
-            effect.PowerUpUpdate();
-            if(effect.remainingTime <= 0)
-            {
-                effect.EffectEnd();
-                effectList.Remove(effect);
-            }
-        }
     }
 
 	// Start moving to Left Lane
@@ -145,12 +139,26 @@ public class NejikoController : MonoBehaviour {
 
 	}
 
+    private IEnumerator EffectEnumerator(Effect_Base effect)
+    {
+        effect.EffectStart(this);
+        float time = effect.remainingTime;
+        while (time >= 0)
+        {
+            effect.EffectUpdate(this);
+            time -= Time.deltaTime;
+            yield return null;
+        }
+        effect.EffectEnd(this);
+        RemoveEffect(effect);
+    }
+
 	// When generated crash to CharacterController
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		if (IsStunned ())
 			return;
 
-		if (hit.gameObject.tag == "Robo") {
+		if (hit.gameObject.CompareTag("Robo")) {
 			// Reduce life value, and change state to sleep
 			life --;
 			recoverTime = StunDuration;

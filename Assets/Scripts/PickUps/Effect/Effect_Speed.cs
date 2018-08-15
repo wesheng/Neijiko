@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,18 +7,23 @@ public class Effect_Speed : Effect_Base
 {
     public float speed;
 
-    public Effect_Speed(float duration, float argument) : base(duration, argument)
+    public Effect_Speed(float duration, float argument) : base(duration)
     {
         speed = argument;
     }
 
-    public override void EffectStart(float duration)
+    public override void EffectStart(NejikoController controller)
     {
-        GlobalInfo.NejikoController.speedZ += speed;
+        controller.speedZ += speed;
     }
 
-    public override void EffectEnd()
+    public override void EffectUpdate(NejikoController controller)
     {
-        GlobalInfo.NejikoController.speedZ -= speed;
+        
+    }
+
+    public override void EffectEnd(NejikoController controller)
+    {
+        controller.speedZ -= speed;
     }
 }

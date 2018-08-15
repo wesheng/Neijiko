@@ -10,7 +10,16 @@ public class NejikoController : MonoBehaviour {
 	const int DefaultLife = 3;
 	const float StunDuration = 0.5f;
 
-	CharacterController controller;
+    [SerializeField] static List<Effect_Base> effectList = new List<Effect_Base>();
+
+    internal static void AddEffect<T>(float duration, float arguments) where T : Effect_Base
+    {
+        T effect = (T) Activator.CreateInstance(typeof(T), duration, arguments);
+        effectList.Add(effect);
+        effect.EffectStart(duration);
+    }
+
+    CharacterController controller;
 	Animator animator;
 
 	Vector3 moveDirection = Vector3.zero;
@@ -18,12 +27,12 @@ public class NejikoController : MonoBehaviour {
 	int life = DefaultLife;
 	float recoverTime = 0.0f;
 
-	public float gravity;
-	public float speedZ;
-	public float speedX;
-	public float speedJump;
-	public float stunAccelerationZ;
-    public float velocityZ;
+	[SerializeField] public float gravity;
+	[SerializeField] public float speedZ;
+	[SerializeField] public float speedX;
+	[SerializeField] public float speedJump;
+	[SerializeField] public float stunAccelerationZ;
+    [SerializeField] public float velocityZ;
 
     public ParticleSystem OnCollideParticles;
     public ParticleSystem RunningParticles;
@@ -92,6 +101,17 @@ public class NejikoController : MonoBehaviour {
 
         // If the speed is more than 0, the running flag is set to true.
         animator.SetBool("run", moveDirection.z > 0.0f);
+
+        // Update Effects
+        foreach(Effect_Base effect in effectList)
+        {
+            effect.PowerUpUpdate();
+            if(effect.remainingTime <= 0)
+            {
+                effect.EffectEnd();
+                effectList.Remove(effect);
+            }
+        }
     }
 
 	// Start moving to Left Lane

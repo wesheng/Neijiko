@@ -14,4 +14,9 @@ public abstract class Effect_Base
     public abstract void EffectStart(NejikoController controller);
     public abstract void EffectUpdate(NejikoController controller);
     public abstract void EffectEnd(NejikoController controller);
+
+    public virtual IEnumerator EffectCoroutine(NejikoController controller)
+    {
+        yield return null;
+    }
 }

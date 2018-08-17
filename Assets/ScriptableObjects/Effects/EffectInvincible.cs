@@ -12,8 +12,8 @@ public class EffectInvincible : EffectDuration
         float timeLeft            = Duration;
         var   characterController = controller.GetComponent<CharacterController>();
         characterController.detectCollisions = false;
-        int roboLayer = (int) Mathf.Log(EnemyLayer.value, 2);
-        Physics.IgnoreLayerCollision(characterController.gameObject.layer, roboLayer, true);
+        int enemyLayer = (int) Mathf.Log(EnemyLayer.value, 2);
+        Physics.IgnoreLayerCollision(characterController.gameObject.layer, enemyLayer, true);
         bool isShowing = false;
         while (timeLeft >= 0)
         {
@@ -24,7 +24,7 @@ public class EffectInvincible : EffectDuration
             yield return null;
         }
 
-        Physics.IgnoreLayerCollision(characterController.gameObject.layer, roboLayer, false);
+        Physics.IgnoreLayerCollision(characterController.gameObject.layer, enemyLayer, false);
         characterController.detectCollisions = true;
         renderer.enabled                     = true;
     }

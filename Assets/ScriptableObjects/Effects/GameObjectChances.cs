@@ -32,7 +32,6 @@ public class GameObjectChances : ScriptableObject
         float shouldSpawn = Random.Range(0.0f, 100.0f);
         if (shouldSpawn < ChanceSpawn)
         {
-            Debug.Log("Spawning powerup");
             float currentPossible = 0;
             float[] chances = new float[Objects.Count];
             for (var i = 0; i < Objects.Count; i++)

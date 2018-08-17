@@ -12,7 +12,7 @@ public class StageGenerator : MonoBehaviour {
 	public int startTipIndex;
 	public int preInstantiate;
 	public List<GameObject> generatedStageList = new List<GameObject> ();
-
+    [SerializeField] private GameObjectChances gameObjectChances;
 
     //// Random generation
 
@@ -80,7 +80,16 @@ public class StageGenerator : MonoBehaviour {
                 );
 	    }
 
-
+	    GameObject powerup = gameObjectChances.RollForObject();
+	    if (powerup != null)
+	    {
+	        GameObject spawnedPowerup = Instantiate(powerup, stageObject.transform);
+            spawnedPowerup.transform.localPosition = new Vector3(
+                Random.Range(-2.5f, 2.5f),
+                1,
+                Random.Range(5f, 25f)
+                );
+	    }
 
 		return stageObject;
 	}

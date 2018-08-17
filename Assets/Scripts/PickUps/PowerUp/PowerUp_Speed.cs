@@ -7,8 +7,9 @@ public class PowerUp_Speed : PowerUp_Base
     [SerializeField] private float duration;
     [SerializeField] private float speedAddition;
 
-    protected override Effect_Base InitEffect()
+    protected override EffectBase InitEffect()
     {
-        return new Effect_Speed(duration, speedAddition);
+        return null;
+        //return new EffectSpeed(duration, speedAddition);
     }
 }

@@ -11,21 +11,21 @@ public class NejikoController : MonoBehaviour {
 	const int DefaultLife = 3;
 	const float StunDuration = 0.5f;
 
-    [SerializeField] List<Effect_Base> effectList = new List<Effect_Base>();
+    [SerializeField] List<EffectBase> effectList = new List<EffectBase>();
 
     [SerializeField] private Renderer selfRenderer;
-    private Effect_Invincible invincibleEffect;
+    // private Effect_Invincible invincibleEffect;
 
-    public void AddEffect<T>(T effect) where T : Effect_Base
+    public void AddEffect<T>(T effect) where T : EffectBase
     {
         effectList.Add(effect);
-        StartCoroutine(EffectEnumerator(effect));
+        StartCoroutine(effect.EffectCoroutine(this));
     }
 
-    public void RemoveEffect<T>(T effect) where T : Effect_Base
-    {
-        effectList.Remove(effect);
-    }
+    //public void RemoveEffect<T>(T effect) where T : EffectBase
+    //{
+    //    effectList.Remove(effect);
+    //}
 
     CharacterController controller;
 	Animator animator;
@@ -46,7 +46,8 @@ public class NejikoController : MonoBehaviour {
 	[SerializeField] public float speedJump;
 	[SerializeField] public float stunAccelerationZ;
     [SerializeField] public float velocityZ;
-    [SerializeField] private float invincibilityTime = 1;
+    //[SerializeField] private float invincibilityTime = 1;
+    [SerializeField] private EffectInvincible invincibilityEffect;
 
     public ParticleSystem OnCollideParticles;
     public ParticleSystem RunningParticles;
@@ -63,7 +64,7 @@ public class NejikoController : MonoBehaviour {
         // Automatic retrieval of required components
         controller = GetComponent<CharacterController>();
 		animator = GetComponent<Animator> ();
-	    invincibleEffect = new Effect_Invincible(selfRenderer, invincibilityTime);
+	    //invincibleEffect = new Effect_Invincible(selfRenderer, invincibilityTime);
     }
 	
 	// Update is called once per frame
@@ -145,20 +146,20 @@ public class NejikoController : MonoBehaviour {
 
 	}
 
-    private IEnumerator EffectEnumerator(Effect_Base effect)
-    {
-        effect.EffectStart(this);
-        StartCoroutine(effect.EffectCoroutine(this));
-        float time = effect.remainingTime;
-        while (time >= 0)
-        {
-            effect.EffectUpdate(this);
-            time -= Time.deltaTime;
-            yield return null;
-        }
-        effect.EffectEnd(this);
-        RemoveEffect(effect);
-    }
+    //private IEnumerator EffectEnumerator(Effect_Base effect)
+    //{
+    //    effect.EffectStart(this);
+    //    StartCoroutine(effect.EffectCoroutine(this));
+    //    float time = effect.remainingTime;
+    //    while (time >= 0)
+    //    {
+    //        effect.EffectUpdate(this);
+    //        time -= Time.deltaTime;
+    //        yield return null;
+    //    }
+    //    effect.EffectEnd(this);
+    //    RemoveEffect(effect);
+    //}
 
 	// When generated crash to CharacterController
 	void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -176,10 +177,10 @@ public class NejikoController : MonoBehaviour {
 			// Set Damage Trigger
 			animator.SetTrigger("damage");
 		    RunningParticles.Stop();
-            AddEffect(invincibleEffect);
+            AddEffect(invincibilityEffect);
 
 			// Delete colliding object
-			Destroy(hit.gameObject);
+		    Destroy(hit.gameObject);
 		    cameraShake.Shake(StunDuration);
 		}
 	}

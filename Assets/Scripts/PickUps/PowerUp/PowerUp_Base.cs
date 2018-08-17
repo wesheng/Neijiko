@@ -5,14 +5,14 @@ using UnityEngine;
 public abstract class PowerUp_Base : MonoBehaviour
 {
 
-    private Effect_Base effect;
+    private EffectBase effect;
 
     void Start()
     {
         effect = InitEffect();
     }
 
-    protected abstract Effect_Base InitEffect();
+    protected abstract EffectBase InitEffect();
     
     public void GiveEffect(NejikoController controller)
     {

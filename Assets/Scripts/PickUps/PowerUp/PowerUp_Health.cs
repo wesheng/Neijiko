@@ -5,11 +5,11 @@ namespace PickUps.PowerUp
 {
     public class PowerUp_Health : PowerUp_Base
     {
-        [SerializeField] private int HealthToGive = 1;
+        [SerializeField] private EffectHealth Health;
 
-        protected override Effect_Base InitEffect()
+        protected override EffectBase InitEffect()
         {
-            return new Effect_Health(HealthToGive);
+            return Health;
         }
     }
 }

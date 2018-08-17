@@ -942,18 +942,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1278698564524626, guid: 145dd5b1e3f241a42b9cb8de73da8977,
     type: 2}
   m_PrefabInternal: {fileID: 346008023}
---- !u!114 &346008025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 346008024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5e0421c14dd21439dbfca50b7520c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: {fileID: 0}
 --- !u!114 &346008026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5883,19 +5871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 11400000, guid: fd343e7cd1b3f3e48b15990f678d13d5, type: 2}
---- !u!114 &707680339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707680334}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b830e5982b2fe47468f701c1499fd03d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 3
-  speedAddition: 20
 --- !u!137 &740237294 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 13717728, guid: a780da896ca904035b33f90d86b0ba4d,

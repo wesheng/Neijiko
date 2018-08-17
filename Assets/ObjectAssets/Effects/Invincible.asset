@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Name: Invincible
   m_EditorClassIdentifier: 
   Duration: 3
-  renderer: {fileID: 0}

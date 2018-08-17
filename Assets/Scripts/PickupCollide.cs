@@ -16,7 +16,7 @@ public class PickupCollide : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Pickup"))
         {
-            PowerUp_Base powerupComp = hit.gameObject.GetComponent<PowerUp_Base>();
+            PowerUp powerupComp = hit.gameObject.GetComponent<PowerUp>();
             powerupComp.GiveEffect(controller);
             Destroy(hit.gameObject);
         }

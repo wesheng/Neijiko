@@ -4,13 +4,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Effects/Invincible")]
 public class EffectInvincible : EffectDuration
 {
+    [SerializeField] private LayerMask EnemyLayer;
+
     public override IEnumerator EffectCoroutine(NejikoController controller)
     {
         var   renderer            = controller.GetComponentInChildren<Renderer>();
         float timeLeft            = Duration;
         var   characterController = controller.GetComponent<CharacterController>();
         characterController.detectCollisions = false;
-        int roboLayer = LayerMask.NameToLayer("Robo");
+        int roboLayer = (int) Mathf.Log(EnemyLayer.value, 2);
         Physics.IgnoreLayerCollision(characterController.gameObject.layer, roboLayer, true);
         bool isShowing = false;
         while (timeLeft >= 0)

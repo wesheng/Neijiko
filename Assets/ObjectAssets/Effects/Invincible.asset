@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Name: Invincible
   m_EditorClassIdentifier: 
   Duration: 3
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 256

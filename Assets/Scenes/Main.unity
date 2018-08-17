@@ -5773,6 +5773,7 @@ MonoBehaviour:
   generatedStageList:
   - {fileID: 1700744716}
   - {fileID: 1075190584}
+  gameObjectChances: {fileID: 11400000, guid: 84511f81a872f6549a1713e0e03dedf5, type: 2}
   stage: {fileID: 114390, guid: 16de06a814a1d403fbe161e9851bc37b, type: 2}
   enemyPoints:
   - {fileID: 1204127411046352, guid: 491794eab5c60c146bce82acf415d65c, type: 2}

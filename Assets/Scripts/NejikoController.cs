@@ -17,6 +17,7 @@ public class NejikoController : MonoBehaviour {
 
     CharacterController controller;
 	Animator animator;
+    AudioSource audioSource;
 
 	Vector3 moveDirection = Vector3.zero;
 	int targetLane;
@@ -39,8 +40,8 @@ public class NejikoController : MonoBehaviour {
     public ParticleSystem OnCollideParticles;
     public ParticleSystem RunningParticles;
 
-    // Shake Camera
     public CameraShake cameraShake;
+    public AudioClip jumpSFX;
 
 	public bool IsStunned() {
 		return recoverTime > 0.0f || life <= 0;
@@ -51,6 +52,8 @@ public class NejikoController : MonoBehaviour {
         // Automatic retrieval of required components
         controller = GetComponent<CharacterController>();
 		animator = GetComponent<Animator> ();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = jumpSFX;
     }
 	
 	// Update is called once per frame
@@ -128,8 +131,8 @@ public class NejikoController : MonoBehaviour {
 	        // Set Jumper trigger
 	        animator.SetTrigger("jump");
 	        RunningParticles.Stop();
+            audioSource.Play();
 	    }
-
 	}
 
 	// When generated crash to CharacterController

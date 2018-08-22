@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class ObjectList<T> : ScriptableObject
 {
     [Serializable]
-    public class StringValuePair<T>
+    public class StringValuePair
     {
         public string Key;
         public T      Value;
@@ -13,4 +13,5 @@ public abstract class ObjectList<T> : ScriptableObject
 
 
     public abstract T this[string key] { get; }
+    public abstract int Count { get; }
 }

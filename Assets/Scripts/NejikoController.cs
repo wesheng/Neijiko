@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class NejikoController : MonoBehaviour {
 	const int MinLane = -2;
@@ -17,7 +18,6 @@ public class NejikoController : MonoBehaviour {
 
     CharacterController controller;
 	Animator animator;
-    AudioSource audioSource;
 
 	Vector3 moveDirection = Vector3.zero;
 	int targetLane;
@@ -37,11 +37,12 @@ public class NejikoController : MonoBehaviour {
     [SerializeField] public float velocityZ;
     [SerializeField] private EffectInvincible invincibilityEffect;
 
+
     public ParticleSystem OnCollideParticles;
     public ParticleSystem RunningParticles;
 
     public CameraShake cameraShake;
-    public AudioClip jumpSFX;
+    private AudioPlayer audioPlayer;
 
 	public bool IsStunned() {
 		return recoverTime > 0.0f || life <= 0;
@@ -52,9 +53,8 @@ public class NejikoController : MonoBehaviour {
         // Automatic retrieval of required components
         controller = GetComponent<CharacterController>();
 		animator = GetComponent<Animator> ();
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = jumpSFX;
-    }
+	    audioPlayer = GetComponent<AudioPlayer>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -131,7 +131,7 @@ public class NejikoController : MonoBehaviour {
 	        // Set Jumper trigger
 	        animator.SetTrigger("jump");
 	        RunningParticles.Stop();
-            audioSource.Play();
+	        audioPlayer.PlayClip("Jump");
 	    }
 	}
 
@@ -152,6 +152,7 @@ public class NejikoController : MonoBehaviour {
 		    RunningParticles.Stop();
             AddEffect(invincibilityEffect);
 
+		    audioPlayer.PlayClip("Hurt");
 			// Delete colliding object
 		    Destroy(hit.gameObject);
 		    cameraShake.Shake(StunDuration);

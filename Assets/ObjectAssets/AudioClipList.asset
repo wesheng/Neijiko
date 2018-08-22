@@ -13,6 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dictionary:
   - Key: Jump
-    Value: {fileID: 8300000, guid: 89c763c00a2f8bd45a515a586de9b2cd, type: 3}
+    Value:
+    - {fileID: 8300000, guid: 89c763c00a2f8bd45a515a586de9b2cd, type: 3}
   - Key: Hurt
-    Value: {fileID: 8300000, guid: c4e7dbadc4e907a49b27a087b3dae697, type: 3}
+    Value:
+    - {fileID: 8300000, guid: c4e7dbadc4e907a49b27a087b3dae697, type: 3}
+  - Key: Powerup
+    Value:
+    - {fileID: 8300000, guid: ee624950d06dd6649b78a7698ea9b315, type: 3}
+    - {fileID: 8300000, guid: dbe4d2c01bbaf2c40973832dca15c315, type: 3}

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AI_Walk : MonoBehaviour {
     
-    [SerializeField] [Range(1.0f, 10.0f)] float m_speed = 1.0f;
-    [HideInInspector] public Animator m_animator = null;
+    [SerializeField] [Range(1.0f, 10.0f)] private float m_speed = 1.0f;
+    [HideInInspector] private Animator m_animator = null;
 
-    [SerializeField] Vector3 waypointOffsetLeft     = new Vector3(-2.0f, 0.0f, 0.0f);
-    [SerializeField] Vector3 waypointOffsetRight    = new Vector3(+2.0f, 0.0f, 0.0f);
-    Vector3 currWaypoint;
+    [SerializeField] private Vector3 waypointOffsetLeft     = new Vector3(-2.0f, 0.0f, 0.0f);
+    [SerializeField] private Vector3 waypointOffsetRight    = new Vector3(+2.0f, 0.0f, 0.0f);
+    private Vector3 currWaypoint;
     
     // Use this for initialization
     void Start ()

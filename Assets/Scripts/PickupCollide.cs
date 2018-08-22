@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PickupCollide : MonoBehaviour
 {
-
     private NejikoController controller;
+    private AudioPlayer audioPlayer;
 
     private void Start()
     {
         controller = GetComponent<NejikoController>();
+        audioPlayer = GetComponent<AudioPlayer>();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -17,6 +18,9 @@ public class PickupCollide : MonoBehaviour
         if (hit.gameObject.CompareTag("Pickup"))
         {
             PowerUp powerupComp = hit.gameObject.GetComponent<PowerUp>();
+
+            audioPlayer.PlayClip("Powerup");
+            
             powerupComp.GiveEffect(controller);
             Destroy(hit.gameObject);
         }

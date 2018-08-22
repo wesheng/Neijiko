@@ -10,7 +10,6 @@ public class AI_Walk : MonoBehaviour {
     [SerializeField] Vector3 waypointOffsetLeft     = new Vector3(-2.0f, 0.0f, 0.0f);
     [SerializeField] Vector3 waypointOffsetRight    = new Vector3(+2.0f, 0.0f, 0.0f);
     Vector3 currWaypoint;
-    [SerializeField] string currWaypointString = "ええええええええ";
     
     // Use this for initialization
     void Start ()
@@ -21,7 +20,6 @@ public class AI_Walk : MonoBehaviour {
         waypointOffsetRight.z = transform.position.z;
 
         currWaypoint = waypointOffsetLeft;
-        currWaypointString = "Left";
         m_animator = GetComponent<Animator>();
     }
 	
@@ -30,12 +28,9 @@ public class AI_Walk : MonoBehaviour {
 
         Vector3 velocity = Vector3.zero;
         Vector3 direction = Vector3.zero;
-
-        if (currWaypoint != null)
-        {
-            direction = currWaypoint - transform.position;
-            velocity.z = m_speed;
-        }
+        
+        direction = currWaypoint - transform.position;
+        velocity.z = m_speed;
 
         bool isWalking = !Mathf.Approximately(velocity.magnitude, 0.0f);
         m_animator.SetBool("walk", isWalking);
@@ -44,8 +39,7 @@ public class AI_Walk : MonoBehaviour {
 
         velocity = transform.rotation * velocity;
         transform.position = transform.position + (velocity * Time.deltaTime);
-
-        float distance = Mathf.Sqrt(Vector3.Dot(currWaypoint, transform.position));
+        
         if(transform.position.x < waypointOffsetLeft.x)
         {
             currWaypoint = waypointOffsetRight;

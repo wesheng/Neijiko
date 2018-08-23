@@ -16,8 +16,7 @@ public class StageGenerator : MonoBehaviour {
 
     //// Random generation
 
-    // Base stage prefab
-    public GameObject stage;
+    [SerializeField] private GameObjectChances stages;
     // Use for random generation of enemy
     public List<GameObject> enemyPoints = new List<GameObject>();
 
@@ -61,8 +60,9 @@ public class StageGenerator : MonoBehaviour {
 	}
 
 	// Create Stage object in particular position
-	GameObject GenerateStage (int tipIndex) {
-	    GameObject stageObject = (GameObject)Instantiate (stage,
+	GameObject GenerateStage (int tipIndex)
+	{
+	    GameObject stageObject = Instantiate (stages.RollForObject(),
 	        new Vector3 (0, 0, tipIndex * StageTipSize), Quaternion.identity);
         // place enemies on the stage.
         // min x = -2.5, max x = 2.5
@@ -70,13 +70,16 @@ public class StageGenerator : MonoBehaviour {
         // 5 < x < 25
 	    const int numberOfEnemiesToSpawn = 3;
 	    int enemyIndex = Random.Range(0, enemyPoints.Count);
+	    BoundsRegion boundsRegion = stageObject.GetComponentInChildren<BoundsRegion>();
+        
 	    for (int i = 0; i < numberOfEnemiesToSpawn; ++i)
 	    {
 	        GameObject enemy = (GameObject) Instantiate(enemyPoints[enemyIndex], stageObject.transform);
+	        Vector3 pos = boundsRegion.GetRandomPoint();
             enemy.transform.localPosition = new Vector3(
-                Random.Range(-2.5f, 2.5f),
+                pos.x,
                 0,
-                Random.Range(5f, 25f)
+                pos.z
                 );
 	    }
 
@@ -84,10 +87,11 @@ public class StageGenerator : MonoBehaviour {
 	    if (powerup != null)
 	    {
 	        GameObject spawnedPowerup = Instantiate(powerup, stageObject.transform);
+	        Vector3 pos = boundsRegion.GetRandomPoint();
             spawnedPowerup.transform.localPosition = new Vector3(
-                Random.Range(-2.5f, 2.5f),
+                pos.x,
                 1,
-                Random.Range(5f, 25f)
+                pos.z
                 );
 	    }
 

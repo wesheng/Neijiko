@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 9523494}
   - component: {fileID: 5466012}
   - component: {fileID: 13645778}
+  - component: {fileID: 114197183749301580}
   m_Layer: 8
   m_Name: RoboBasic
   m_TagString: Robo
@@ -671,3 +672,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150958}
   m_IsPrefabAsset: 1
+--- !u!114 &114197183749301580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42d193a9bf29484e8f4e61c408caf1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 1
+  waypointOffsetLeft: {x: -2, y: 0, z: 0}
+  waypointOffsetRight: {x: 2, y: 0, z: 0}

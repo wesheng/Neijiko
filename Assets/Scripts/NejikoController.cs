@@ -35,6 +35,7 @@ public class NejikoController : MonoBehaviour {
 	[SerializeField] public float speedJump;
 	[SerializeField] public float stunAccelerationZ;
     [SerializeField] public float velocityZ;
+    [SerializeField] private float deathYBounds;
     [SerializeField] private EffectInvincible invincibilityEffect;
 
 
@@ -98,6 +99,12 @@ public class NejikoController : MonoBehaviour {
 	            RunningParticles.Play();
 	        }
 	        moveDirection.y = 0;
+	    }
+
+	    if (transform.position.y < deathYBounds)
+	    {
+	        life = 0;
+	        recoverTime = StunDuration;
 	    }
 
         // If the speed is more than 0, the running flag is set to true.

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0ed15e5df49754c827238c3dfbe6f0, type: 3}
+  m_Name: Platforms
+  m_EditorClassIdentifier: 
+  ChanceSpawn: 100
+  Objects:
+  - Object: {fileID: 1348388061946236, guid: 4ee7d44555bef8d45bfaf11fa02360d3, type: 2}
+    Chance: 65
+  - Object: {fileID: 1553604926424112, guid: 596b2066eb2c78b4bb8d3b21594e0348, type: 2}
+    Chance: 10
+  - Object: {fileID: 1570303344494430, guid: 7336825bba3d01f4cbc4e31ee724a88e, type: 2}
+    Chance: 10
+  - Object: {fileID: 1330921652423944, guid: 467fcba32cd26214cbe9b8c84a3dac2e, type: 2}
+    Chance: 15

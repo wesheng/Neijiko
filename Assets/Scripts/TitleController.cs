@@ -10,7 +10,7 @@ public class TitleController : MonoBehaviour {
 
 	public void Start() {
 		// Show highscore
-		highScoreLabel.text = "High Score : " + PlayerPrefs.GetInt("HighScore") + "m";
+		highScoreLabel.text = "High Score : " + PlayerPrefs.GetInt("HighScore");
 	}
 
 	public void OnStartButtonClicked() {

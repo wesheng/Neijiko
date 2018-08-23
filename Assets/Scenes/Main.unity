@@ -6658,6 +6658,7 @@ MonoBehaviour:
   nejiko: {fileID: 228975680}
   scoreLabel: {fileID: 1540587652}
   lifePanel: {fileID: 1865644596}
+  score: 0
 --- !u!4 &1822425478
 Transform:
   m_ObjectHideFlags: 0
@@ -6683,6 +6684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nejikoController: {fileID: 228975680}
+  m_gameController: {fileID: 1822425477}
 --- !u!82 &1822425480
 AudioSource:
   m_ObjectHideFlags: 0

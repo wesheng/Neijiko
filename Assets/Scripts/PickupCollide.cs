@@ -13,7 +13,7 @@ public class PickupCollide : MonoBehaviour
         audioPlayer = GetComponent<AudioPlayer>();
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider hit)
     {
         if (hit.gameObject.CompareTag("Pickup"))
         {

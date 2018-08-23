@@ -33,6 +33,7 @@ public class NejikoController : MonoBehaviour {
 	[SerializeField] public float speedZ;
 	[SerializeField] public float speedX;
 	[SerializeField] public float speedJump;
+	[SerializeField] public float speedAirJump;
 	[SerializeField] public float stunAccelerationZ;
     [SerializeField] public float velocityZ;
     [SerializeField] private float deathYBounds;
@@ -40,10 +41,12 @@ public class NejikoController : MonoBehaviour {
 
 
     public ParticleSystem OnCollideParticles;
+    public ParticleSystem OnJumpParticles;
     public ParticleSystem RunningParticles;
 
     public CameraShake cameraShake;
     private AudioPlayer audioPlayer;
+    private bool hasAirJumped;
 
 	public bool IsStunned() {
 		return recoverTime > 0.0f || life <= 0;
@@ -99,6 +102,7 @@ public class NejikoController : MonoBehaviour {
 	            RunningParticles.Play();
 	        }
 	        moveDirection.y = 0;
+	        hasAirJumped = false;
 	    }
 
 	    if (transform.position.y < deathYBounds)
@@ -139,6 +143,18 @@ public class NejikoController : MonoBehaviour {
 	        animator.SetTrigger("jump");
 	        RunningParticles.Stop();
 	        audioPlayer.PlayClip("Jump");
+	    }
+	    else
+	    {
+	        if (!hasAirJumped)
+	        {
+	            moveDirection.y = speedAirJump * 2f;
+	            // Set Jumper trigger
+	            animator.SetTrigger("jump");
+	            audioPlayer.PlayClip("Jump");
+	            Instantiate(OnJumpParticles, transform.position + new Vector3(0, 0, 1f), Quaternion.identity);
+	            hasAirJumped = true;
+	        }
 	    }
 	}
 

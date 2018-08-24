@@ -17,8 +17,8 @@ public class GameController : MonoBehaviour {
     }
 
     public void Update () {
-		// Update Score label
-		score += Time.deltaTime;
+        // Update Score label
+        AddToScore(CalcScore());
 		scoreLabel.text = "Score : " + (int)score;
 
 		// Update Life Panel
@@ -38,6 +38,16 @@ public class GameController : MonoBehaviour {
 			Invoke("ReturnToTitle", 2.0f);
 		}
 	}
+
+    public float CalcScore()
+    {
+        return Time.deltaTime * (GlobalInfo.NejikoController.speedZ / (GlobalInfo.NejikoController.speedZ * 0.6f));
+    }
+
+    public void AddToScore(float scoreToAdd)
+    {
+        score += scoreToAdd;
+    }
 
 	void ReturnToTitle() {
 		// Change to Title Scene

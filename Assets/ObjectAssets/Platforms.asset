@@ -25,3 +25,5 @@ MonoBehaviour:
     Chance: 10
   - Object: {fileID: 1916717427230502, guid: 0605b5bf6fd098f4d9e0e7272084f0b5, type: 2}
     Chance: 10
+  - Object: {fileID: 1605647971111760, guid: 17bf8a55a13caed4c9d266bb613deb44, type: 2}
+    Chance: 8

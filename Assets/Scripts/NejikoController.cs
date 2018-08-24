@@ -38,6 +38,7 @@ public class NejikoController : MonoBehaviour {
     [SerializeField] public float velocityZ;
     [SerializeField] private float deathYBounds;
     [SerializeField] private EffectInvincible invincibilityEffect;
+    [SerializeField] private StageGenerator stageGenerator;
 
 
     public ParticleSystem OnCollideParticles;
@@ -107,8 +108,16 @@ public class NejikoController : MonoBehaviour {
 
 	    if (transform.position.y < deathYBounds)
 	    {
-	        life = 0;
-	        recoverTime = StunDuration;
+	        life--;
+	        if (life > 0)
+	        {
+	            recoverTime = StunDuration * 2;
+	            GameObject oldestStage = stageGenerator.GetStage(1);
+	            Vector3    pos         = oldestStage.transform.position;
+	            pos.y              = 3;
+	            transform.position = pos;
+	            targetLane         = 0;
+	        }
 	    }
 
         // If the speed is more than 0, the running flag is set to true.

@@ -104,4 +104,14 @@ public class StageGenerator : MonoBehaviour {
 		generatedStageList.RemoveAt (0);
 		Destroy (oldStage);
 	}
+
+    public GameObject GetOldestStage()
+    {
+        return generatedStageList[0];
+    }
+
+    public GameObject GetStage(int index)
+    {
+        return generatedStageList[index];
+    }
 }

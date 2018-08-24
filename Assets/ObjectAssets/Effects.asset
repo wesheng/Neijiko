@@ -14,10 +14,10 @@ MonoBehaviour:
   ChanceSpawn: 20
   Objects:
   - Object: {fileID: 1200902417477672, guid: fc46c001b53e70146aade528506aa80a, type: 2}
-    Chance: 5
+    Chance: 20
   - Object: {fileID: 1648542347539676, guid: 0a156b6e86ddf3a4f87e65cce7464061, type: 2}
     Chance: 40
   - Object: {fileID: 1993818030397590, guid: 1db23c855c14cb5428a0bc9a7d488879, type: 2}
     Chance: 70
   - Object: {fileID: 1993818030397590, guid: 98b0d7955a28c4746954ad02cc624add, type: 2}
-    Chance: 20
+    Chance: 25

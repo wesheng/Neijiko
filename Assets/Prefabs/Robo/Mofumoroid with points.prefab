@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 95983237777567010}
   - component: {fileID: 136588933847118086}
   - component: {fileID: 54934435226696836}
+  - component: {fileID: 114405115181968190}
   m_Layer: 8
   m_Name: Mofumoroid with points
   m_TagString: Robo
@@ -395,6 +396,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 11400000, guid: b1ddc385d322ced4aa7a54be8621a37c, type: 2}
+--- !u!114 &114405115181968190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617649500919538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039194ff27569aa48be5e10caa21cdcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135902210717982388
 SphereCollider:
   m_ObjectHideFlags: 1

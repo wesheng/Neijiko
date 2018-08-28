@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 95895969034840716}
   - component: {fileID: 54437191176912842}
   - component: {fileID: 65082869118096902}
+  - component: {fileID: 114751873291208156}
   m_Layer: 8
   m_Name: Tofu with points
   m_TagString: Robo
@@ -320,6 +321,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 11400000, guid: b1ddc385d322ced4aa7a54be8621a37c, type: 2}
+--- !u!114 &114751873291208156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133394308273560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cfffdfe87622745bdcdd344cd5a913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135884086258429244
 SphereCollider:
   m_ObjectHideFlags: 1

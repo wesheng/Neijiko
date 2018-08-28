@@ -30,8 +30,8 @@ public class GameController : MonoBehaviour {
 			enabled = false;
 
 			// Update high score
-			if (PlayerPrefs.GetFloat ("HighScore") < score) {
-				PlayerPrefs.GetFloat("HighScore", score);
+			if (PlayerPrefs.GetInt("HighScore") < score) {
+				PlayerPrefs.SetInt("HighScore", (int) score);
 			}
 
 			// Call ReturnToTile in 2 seconds

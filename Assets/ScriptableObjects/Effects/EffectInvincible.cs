@@ -15,7 +15,7 @@ public class EffectInvincible : EffectDuration
         int enemyLayer = (int) Mathf.Log(EnemyLayer.value, 2);
         Physics.IgnoreLayerCollision(controller.gameObject.layer, enemyLayer, true);
         bool isShowing = false;
-        Color originalColor = renderer.material.color;
+        //Color originalColor = renderer.material.color;
 
         while (timeLeft >= 0)
         {
@@ -31,7 +31,7 @@ public class EffectInvincible : EffectDuration
             yield return null;
         }
 
-        renderer.material.color = originalColor;
+        renderer.material.color = UnityEngine.Color.white;
         Physics.IgnoreLayerCollision(controller.gameObject.layer, enemyLayer, false);
         renderer.enabled                     = true;
     }

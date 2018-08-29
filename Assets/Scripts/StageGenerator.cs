@@ -88,11 +88,9 @@ public class StageGenerator : MonoBehaviour {
 	    {
 	        GameObject spawnedPowerup = Instantiate(powerup, stageObject.transform);
 	        Vector3 pos = boundsRegion.GetRandomPoint();
-            spawnedPowerup.transform.localPosition = new Vector3(
-                pos.x,
-                1,
-                pos.z
-                );
+	        pos.y += 0.3f;
+
+	        spawnedPowerup.transform.localPosition = pos;
 	    }
 
 		return stageObject;

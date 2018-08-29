@@ -1022,16 +1022,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114054118851650286, guid: 467fcba32cd26214cbe9b8c84a3dac2e,
-        type: 2}
-      propertyPath: bounds.Array.data[0].m_Extent.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114054118851650286, guid: 467fcba32cd26214cbe9b8c84a3dac2e,
-        type: 2}
-      propertyPath: bounds.Array.data[0].m_Center.z
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 467fcba32cd26214cbe9b8c84a3dac2e, type: 2}
   m_IsPrefabAsset: 0

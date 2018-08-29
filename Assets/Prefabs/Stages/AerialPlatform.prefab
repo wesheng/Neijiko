@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounds:
   - m_Center: {x: 0, y: -1.12, z: 12}
-    m_Extent: {x: 3, y: 0.73, z: 12}
+    m_Extent: {x: 2.5, y: 0.73, z: 12}
 --- !u!114 &114544839351657882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,4 +298,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounds:
   - m_Center: {x: 0, y: 4, z: 9.77}
-    m_Extent: {x: 3, y: 0.73, z: 7}
+    m_Extent: {x: 2.5, y: 0.73, z: 7}
